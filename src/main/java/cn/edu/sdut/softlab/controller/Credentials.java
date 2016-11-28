@@ -15,34 +15,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.edu.sdut.softlab;
 
-import java.util.logging.Logger;
+package cn.edu.sdut.softlab.controller;
+
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.enterprise.inject.Default;
+import javax.inject.Named;
 
-public class Resources {
+@RequestScoped
+@Named
+@Default
+public class Credentials {
 
-    // Expose an entity manager using the resource producer pattern
-    @SuppressWarnings("unused")
-    @PersistenceContext
-    @Produces
-    private EntityManager em;
+  private String username;
+  private String password;
 
-    @Produces
-    Logger getLogger(InjectionPoint ip) {
-        String category = ip.getMember().getDeclaringClass().getName();
-        return Logger.getLogger(category);
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    @Produces
-    @RequestScoped
-    FacesContext getFacesContextInstance() {
-        return FacesContext.getCurrentInstance();
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 }
