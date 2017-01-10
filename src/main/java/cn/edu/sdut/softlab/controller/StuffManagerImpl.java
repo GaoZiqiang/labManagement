@@ -74,7 +74,7 @@ public class StuffManagerImpl implements StuffManager {
   public String addStuff() throws Exception {
     try {
       utx.begin();
-      em.persist(newStuff);
+      userService.create(newStuff);
       logger.log(Level.INFO, "Added {0}", newStuff);
       return "/users.xhtml?faces-redirect=true";
     } finally {
