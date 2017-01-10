@@ -19,17 +19,18 @@
 		<h1>欢迎使用实验室物品管理系统</h1>
 	</div>
 	<ul id="nav">
-		<li><a href="./index.xhtml">首页</a></li>
-		<li><a href="./login.xhtml">用户登录</a></li>
-		<li><a href="./reservation.xhtml">房间查询</a></li>
-		<li><a href="./aboutus.xhtml">关于我们</a></li>
+		<li><a href="">首页</a></li>
+		<li><a href="">登录</a></li>
+		<li><a href="">物品查询</a></li>
+		<li><a href="">物品归还</a></li>
+		<li><a href="">物品借用</a></li>
 	</ul>
 	<div id="section">
-		<h2>用户登录</h2>
+		<h2>用户注册</h2>
 		<p>
 			<h:form>
 				<fieldset>
-					<legend>用户登录</legend>
+					<legend>用户注册</legend>
 					<span>用户名：</span>
 					<h:inputText name="username" value="#{userManager.newStuff.username}"
 						size="10" />
@@ -44,6 +45,13 @@
 					<h:commandButton value="登录" action="#{userManager.addStuff}" />
 					<h:link value="还未注册？先注册" outcome="register.xhtml" />
 					
+					<br />
+					请选择登录身份
+					<h:selectOneListbox value="" size="3" >
+					<f:selectItem itemValue="" itemLabel=""/>
+					<f:selectItem itemValue="" itemLabel=""/>
+					<f:selectItem itemValue="" itemLabel=""/>
+					</h:selectOneListbox>
 					
 				</fieldset>
 			</h:form>
