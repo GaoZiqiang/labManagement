@@ -29,7 +29,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import javax.persistence.EntityManager;
 import javax.transaction.UserTransaction;
 
 @Named("userManager")
@@ -40,7 +40,10 @@ public class StuffManagerImpl implements StuffManager {
   private transient Logger logger;
   @Inject
   StuffFacade userService;
-
+  
+  @Inject
+  EntityManager em;
+  
   @Inject
   private UserTransaction utx;
 
@@ -71,11 +74,13 @@ public class StuffManagerImpl implements StuffManager {
   public String addStuff() throws Exception {
     try {
       utx.begin();
-      userService.create(newStuff);
+      em.persist(newStuff);
       logger.log(Level.INFO, "Added {0}", newStuff);
       return "/users.xhtml?faces-redirect=true";
     } finally {
       utx.commit();
     }
   }
+
+
 }

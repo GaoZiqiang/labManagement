@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Su Baochen and individual contributors by the 
+ * Copyright 2016 Su Baochen and individual contributors by the
  * @authors tag. See the copyright.txt in the distribution for
  * a full listing of individual contributors.
  *
@@ -42,7 +42,7 @@ public class LoginController implements Serializable {
 
   @Inject
   StuffFacade stuffService;
-  
+
   @Inject
   FacesContext facesContext;
 
