@@ -9,7 +9,7 @@
       <param-name>org.jboss.weld.development</param-name>
       <param-value>true</param-value>
    </context-param>
-   
+
    <context-param>
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
@@ -29,8 +29,8 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-    
+
    <session-config>
       <session-timeout>10</session-timeout>
-   </session-config>    
+   </session-config>
 </web-app>
