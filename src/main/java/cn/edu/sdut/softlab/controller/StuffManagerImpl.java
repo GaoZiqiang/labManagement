@@ -48,7 +48,7 @@ public class StuffManagerImpl implements StuffManager {
   private UserTransaction utx;
 
   private Stuff newStuff = new Stuff();
-
+  //代码设计的巧妙之处
   public Stuff getNewStuff() {
     return newStuff;
   }
