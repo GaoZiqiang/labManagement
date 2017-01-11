@@ -59,7 +59,7 @@ public class ItemAccount implements Serializable {
   @Column(name = "time_check")
   @Temporal(TemporalType.TIMESTAMP)
   private Date timeCheck;
-  @Size(max = 32)z
+  @Size(max = 32)
   @Column(name = "flag")
   private String flag;
   @JoinColumn(name = "item_id", referencedColumnName = "id")
