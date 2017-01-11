@@ -76,7 +76,7 @@ public class StuffManagerImpl implements StuffManager {
       utx.begin();
       userService.create(newStuff);
       logger.log(Level.INFO, "Added {0}", newStuff);
-      return "/users.xhtml?faces-redirect=true";
+      return "/success_register.xhtml?faces-redirect=true";
     } finally {
       utx.commit();
     }
