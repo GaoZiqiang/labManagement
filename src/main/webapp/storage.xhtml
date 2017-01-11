@@ -31,7 +31,7 @@
 		<div id="daohang">
 
 			<ul>
-				<li><a href="#">退出登录</a></li>
+				<li><a href="./login.jsf">退出登录</a></li>
 
 			</ul>
 
@@ -39,10 +39,31 @@
 
 
 		<div id="section">
-			<h2>欢迎使用实验室物品管理系统</h2>
-			<h3>欢迎使用实验室物品管理系统</h3>
-			<h5>欢迎使用实验室物品管理系统</h5>
-			<h6>欢迎使用实验室物品管理系统</h6>
+			<h2>Item Storage</h2>
+			<p>
+				<h:form>
+					<fieldset>
+						<legend>Item Storage</legend>
+						<span>Item Name：</span>
+						<h:inputText name="name" value="#{itemManager.newItem.name}"
+							size="10" />
+						<span>Item Code：</span>
+						<h:inputText name="code" value="#{itemManager.newItem.code}"
+							size="10" />
+						
+						<br /> <span>Item Status:</span>
+						<h:inputText name="status" value="#{itemManager.newItem.status}"
+							size="10" />
+						<br /> <span>Item Num:</span>
+						<h:inputText name="levelId"
+							value="#{itemManager.newItem.numTotal}" size="10" />
+
+						<br />
+						<h:commandButton value="Storage" action="#{itemManager.addItems}" />
+
+					</fieldset>
+				</h:form>
+			</p>
 		</div>
 
 		<div id="footer">copyright@ 314softlab.com</div>
