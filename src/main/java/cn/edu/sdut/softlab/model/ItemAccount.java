@@ -39,6 +39,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author Su Baochen
+ * 统计报表的Entity类
  */
 @Entity
 @Table(name = "item_account")

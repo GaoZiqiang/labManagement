@@ -76,6 +76,8 @@ public class Item implements Serializable {
   @Column(name = "date_bought")
   @Temporal(TemporalType.DATE)
   private Date dateBought;
+  
+  //???
   @JoinColumn(name = "category_id", referencedColumnName = "id")
   @ManyToOne
   private Category category;
@@ -145,6 +147,9 @@ public class Item implements Serializable {
     this.category = category;
   }
 
+  
+  
+  
   @XmlTransient
   public Set<ItemAccount> getItemAccountSet() {
     return itemAccountSet;

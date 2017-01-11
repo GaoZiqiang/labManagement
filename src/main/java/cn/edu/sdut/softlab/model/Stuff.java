@@ -56,10 +56,14 @@ public class Stuff implements Serializable {
 	@Basic(optional = false)
 	@Column(name = "id")
 	private Integer id;
-
+	// zidingyi
 	@Basic(optional = false)
-	@Column(name = "identity_id")
-	private Integer IID;
+	@NotNull
+	@Size(min = 1, max = 32)
+	@Column(name = "level_id")
+	private String levelId;
+
+	
 
 	@Basic(optional = false)
 	@NotNull
@@ -87,10 +91,11 @@ public class Stuff implements Serializable {
 		this.id = id;
 	}
 
-	public Stuff(Integer id, String username, String password) {
+	public Stuff(Integer id, String username, String password, String levelId) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.levelId = levelId;
 	}
 
 	public Integer getId() {
@@ -100,15 +105,13 @@ public class Stuff implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public Integer getIID() {
-		return IID;
+	public String getLevelId() {
+		return levelId;
 	}
 
-	public void setIID(Integer iID) {
-		IID = iID;
+	public void setLevelId(String levelId) {
+		this.levelId = levelId;
 	}
-
 	public String getUsername() {
 		return username;
 	}
