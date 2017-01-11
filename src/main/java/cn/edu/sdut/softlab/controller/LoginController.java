@@ -50,14 +50,20 @@ public class LoginController implements Serializable {
 
   /**
    * 处理登录逻辑.
+ * @return 
    */
-  public void login() {
+  public String login() {
     Stuff stuff = stuffService.findByUsernameAndPassword(
             credentials.getUsername(), credentials.getPassword());
     if (stuff != null) {
       currentUser = stuff;
       facesContext.addMessage(null, new FacesMessage("Welcome, " + currentUser.getUsername()));
+      System.out.println("登陆成功");
+      return "success_login.jsf";
+    }else {
+    	return "failure_login.jsf";
     }
+	
   }
 
   /**
