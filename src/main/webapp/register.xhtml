@@ -8,7 +8,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>technology</title>
+	<title>314 LabManagement Technolog</title>
 	<!-- css style partly from: http://www.coreservlets.com/JSF-Tutorial/jsf2 -->
 	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	<link href="css/table-styles.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
 </h:head>
 <h:body>
 	<div id="header">
-		<h1>用户登录</h1>
+		<h1>用户注册</h1>
 	</div>
 	<ul id="nav">
 		<li><a href="./index.jsf">首页</a></li>
@@ -27,24 +27,23 @@
 		<li><a href="./aboutus.jsf">关于我们</a></li>
 	</ul>
 	<div id="section">
-		<h2>用户登录</h2>
+		<h2>用户注册</h2>
 		<p>
 			<h:form>
 				<fieldset>
-					<legend>用户登录</legend>
+					<legend>用户注册</legend>
 					<span>用户名：</span>
 					<h:inputText name="username"
-						value="#{credentials.username}" size="10" />
+						value="#{userManager.newStuff.username}" size="10" />
 					<span>密码：</span>
 					<h:inputText name="password"
-						value="#{credentials.password}" size="10" />
-					
+						value="#{userManager.newStuff.password}" size="10" />
+					<br /> <span>邮箱：</span>
+					<h:inputText name="email" value="#{userManager.newStuff.email}"
+						size="10" />
 					<br />
-					<h:commandButton value="登录" action="#{login.login}" />
-					<h:link value="还未注册？先注册" outcome="register.jsf" />
-
+					<h:commandButton value="注册" action="#{userManager.addStuff}" />
 					
-
 				</fieldset>
 			</h:form>
 		</p>
