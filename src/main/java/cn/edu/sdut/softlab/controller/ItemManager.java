@@ -25,7 +25,7 @@ import cn.edu.sdut.softlab.model.Item;
 public interface ItemManager {
 
   /**
-   * 获得所有用户列表.
+   * 获得所有Item列表.
    *
    * @return 所有Item列表
    * @throws Exception
@@ -33,7 +33,7 @@ public interface ItemManager {
   List<Item> getItems() throws Exception;
 
   /**
-   * 新增用户.
+   * 新Item.
    *
    * @return 返回用户列表页面
    * @throws Exception
