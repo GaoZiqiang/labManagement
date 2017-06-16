@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>technology</title>
+	<!-- css style partly from: http://www.coreservlets.com/JSF-Tutorial/jsf2 -->
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<link href="css/table-styles.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<div id="header">
+		<h1>用户登录</h1>
+	</div>
+	<ul id="nav">
+		<li><a href="./index.jsf">首页</a></li>
+		<li><a href="./returning.jsf">物品归还</a></li>
+		<li><a href="./lending.jsf">物品借出</a></li>
+		<li><a href="./storage.jsf">物品入库</a></li>
+		<li><a href="./report.jsf">统计报表</a></li>
+		<li><a href="./aboutus.jsf">关于我们</a></li>
+	</ul>
+	<div id="section">
+		<h2>Item Return</h2>
+		<p>
+			<h:form>
+				<table>
+					<tr>
+						<td>Item Name：</td>
+						<td><h:inputText name="itemName"
+								value="#{credentials.name}" size="10" /></td>
+					</tr>
+
+					<tr>
+						<td>Item Code：</td>
+						<td><h:inputText name="code"
+								value="#{credentials.code}" size="10" /></td>
+					</tr>
+
+					
+
+					<tr>
+						<td><h:commandButton value="Item Return" action="#{itemRemove.removeItem}" /></td>
+					</tr>
+
+					
+				</table>
+			</h:form>
+		</p>
+	</div>
+	<div id="footer">copyright@ 314softlab.com</div>
+
+</h:body>
+</html>
