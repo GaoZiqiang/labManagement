@@ -44,10 +44,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({ @NamedQuery(name = "Stuff.findAll", query = "SELECT s FROM Stuff s"),
 		@NamedQuery(name = "Stuff.findById", query = "SELECT s FROM Stuff s WHERE s.id = :id"),
+		@NamedQuery(name = "Stuff.findByLevel", query = "SELECT s FROM Stuff s WHERE s.level = :level"),
 		@NamedQuery(name = "Stuff.findByUsername", query = "SELECT s FROM Stuff s WHERE s.username = :username"),
 		@NamedQuery(name = "Stuff.findByPassword", query = "SELECT s FROM Stuff s WHERE s.password = :password"),
 		@NamedQuery(name = "Stuff.findByEmail", query = "SELECT s FROM Stuff s WHERE s.email = :email"),
-		@NamedQuery(name = "Stuff.findByUsernameAndPassword", query = "SELECT s FROM Stuff s WHERE s.username = :username and s.password = :password") })
+		@NamedQuery(name = "Stuff.findByUsernameAndPassword", query = "SELECT s FROM Stuff s WHERE s.username = :username and s.password = :password and s.level = :level") })
 public class Stuff implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -60,10 +61,8 @@ public class Stuff implements Serializable {
 	@Basic(optional = false)
 	@NotNull
 	@Size(min = 1, max = 32)
-	@Column(name = "level_id")
-	private String levelId;
-
-	
+	@Column(name = "level")
+	private String level;
 
 	@Basic(optional = false)
 	@NotNull
@@ -95,7 +94,7 @@ public class Stuff implements Serializable {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.levelId = levelId;
+		this.level = levelId;
 	}
 
 	public Integer getId() {
@@ -105,13 +104,15 @@ public class Stuff implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getLevelId() {
-		return levelId;
+
+	public String getLevel() {
+		return level;
 	}
 
-	public void setLevelId(String levelId) {
-		this.levelId = levelId;
+	public void setLevel(String level) {
+		this.level = level;
 	}
+
 	public String getUsername() {
 		return username;
 	}
