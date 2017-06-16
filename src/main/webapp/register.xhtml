@@ -30,24 +30,38 @@
 		<h2>用户注册</h2>
 		<p>
 			<h:form>
-				<fieldset>
-					<legend>用户注册</legend>
-					<span>用户名：</span>
-					<h:inputText name="username"
-						value="#{userManager.newStuff.username}" size="10" />
-					<span>密码：</span>
-					<h:inputText name="password"
-						value="#{userManager.newStuff.password}" size="10" />
-					<br /> <span>邮箱：</span>
-					<h:inputText name="email" value="#{userManager.newStuff.email}"
-						size="10" />
-					<br /> <span>用户身份:</span>
-					<h:inputText name="levelId" value="#{userManager.newStuff.levelId}"
-						size="10" />
-					<br />
-					<h:commandButton value="注册" action="#{userManager.addStuff}" />
-					
-				</fieldset>
+				<table>
+					<tr>
+						<td>用户名:</td>
+						<td><h:inputText name="username"
+								value="#{userManager.newStuff.username}" size="10" /></td>
+					</tr>
+
+					<tr>
+						<td>密码:</td>
+						<td><h:inputText name="password"
+								value="#{userManager.newStuff.password}" size="10" /></td>
+					</tr>
+
+					<tr>
+						<td>邮箱:</td>
+						<td><h:inputText name="email"
+								value="#{userManager.newStuff.email}" size="10" /></td>
+					</tr>
+
+					<tr>
+						<td>用户身份:</td>
+						<td><h:selectOneRadio value="#{userManager.newStuff.level}">
+								<f:selectItem id="item1" itemValue="root" itemLabel="root" />
+								<f:selectItem id="item2" itemValue="student" itemLabel="student" />
+							</h:selectOneRadio></td>
+					</tr>
+
+					<tr>
+						<td><h:commandButton value="注册"
+								action="#{userManager.addStuff}" /></td>
+					</tr>
+				</table>
 			</h:form>
 		</p>
 	</div>
