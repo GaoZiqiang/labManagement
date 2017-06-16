@@ -25,6 +25,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -64,7 +65,7 @@ public abstract class AbstractFacade<T> {
     return em.find(entityClass, id);
   }
 
-  /**
+  /*
    * 返回全部记录.
    *
    * @return 全部记录
