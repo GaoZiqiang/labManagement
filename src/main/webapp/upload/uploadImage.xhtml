@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:corejsf="http://corejsf.com">
+<h:head>
+	<title>A file upload test</title>
+</h:head>
+<h:body>
+	<h:form enctype="multipart/form-data">
+      示例:
+      <h:graphicImage id="imageDemo" width="200" height="50"
+			value="/image/hulianwang5.jpg" />
+		<br />
+      请选择要上传的照片: 
+      <corejsf:upload target="upload/#{user.id}_image.jpg" />
+		<br />
+      前往查看图片预览：
+      <h:commandButton value="预览" action="/next.jsf" />
+		<br />
+      在当前照片预览:
+      <h:graphicImage url="upload/#{user.id}_image.jpg" />
+		<br />
+		<h:commandButton value="uploadRenderer.decode"
+			action="uploadRenderer.decode" />
+	</h:form>
+</h:body>
+</html>
