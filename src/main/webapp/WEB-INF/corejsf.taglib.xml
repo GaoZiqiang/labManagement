@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib version="2.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+   http://java.sun.com/xml/ns/javaee/web-facelettaglibary_2_0.xsd">
+	<namespace>http://corejsf.com</namespace>
+	<tag>
+		<tag-name>upload</tag-name>
+		<component>
+			<component-type>javax.faces.Input</component-type>
+			<renderer-type>com.corejsf.Upload</renderer-type>
+		</component>
+	</tag>
+</facelet-taglib>
