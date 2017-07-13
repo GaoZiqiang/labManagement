@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 
-   <display-name>lab management</display-name>
+	<display-name>lab management</display-name>
 
-   <context-param>
-      <param-name>org.jboss.weld.development</param-name>
-      <param-value>true</param-value>
-   </context-param>
+	<context-param>
+		<param-name>org.jboss.weld.development</param-name>
+		<param-value>true</param-value>
+	</context-param>
 
-   <context-param>
-        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-        <param-value>.xhtml</param-value>
-    </context-param>
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
 
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.jsf</url-pattern>
-    </servlet-mapping>
 
-    <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>cn.lsh.session.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>OutServlet</servlet-name>
+		<servlet-class>cn.lsh.session.OutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OutServlet</servlet-name>
+		<url-pattern>/OutServlet</url-pattern>
+	</servlet-mapping>
+	<!-- Upload Filter -->
+	<filter>
+		<filter-name>Upload Filter</filter-name>
+		<filter-class>com.corejsf.UploadFilter</filter-class>
+		<init-param>
+			<param-name>com.corejsf.UploadFilter.sizeThreshold</param-name>
+			<param-value>1024</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Upload Filter</filter-name>
+		<url-pattern>/upload/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
 
-   <session-config>
-      <session-timeout>10</session-timeout>
-   </session-config>
+	<session-config>
+		<session-timeout>10</session-timeout>
+	</session-config>
 </web-app>
