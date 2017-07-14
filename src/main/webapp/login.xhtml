@@ -20,12 +20,12 @@
 	</div>
 	<ul id="nav">
 		<li><a href="./index.jsf">最新发布</a></li>
-			<li><a href="./returning.jsf">闲置数码</a></li>
-			<li><a href="./lending.jsf">电器日用</a></li>
-			<li><a href="./lending.jsf">图书教材</a></li>
-			<li><a href="./lending.jsf">美妆衣物</a></li>
-			<li><a href="./lending.jsf">运动棋牌</a></li>
-			<li><a href="./lending.jsf">票券小物</a></li>
+		<li><a href="./returning.jsf">闲置数码</a></li>
+		<li><a href="./lending.jsf">电器日用</a></li>
+		<li><a href="./lending.jsf">图书教材</a></li>
+		<li><a href="./lending.jsf">美妆衣物</a></li>
+		<li><a href="./lending.jsf">运动棋牌</a></li>
+		<li><a href="./lending.jsf">票券小物</a></li>
 	</ul>
 	<div id="section">
 		<h2>用户登录</h2>
@@ -33,36 +33,32 @@
 			<h:form>
 				<table>
 					<tr>
-						<td>用户名：</td>
-						<td><h:inputText name="username"
-								value="#{credentials.username}" size="10" /></td>
+						<td><h:outputText value="验证码" /> :</td>
+						<td><h:inputText id="validateCode"
+								validator="#{login.codeValidate}" 
+								value="#{login.validateCode}"
+								style="width:30px;">
+								<f:ajax event="blur" render="validateCodeError" />
+							</h:inputText> <h:message for="validateCode" id="validateCodeError"
+								style="color: red; font-size:75%" />
+							<div style="position: absolute; left: 630px; top: 204px;">
+								<img src="validateCode.jsp" id="getCode" /> <a href="#"
+									onclick="javasrcipt:validateCode()">重新获取验证码</a>
+							</div></td>
 					</tr>
-
 					<tr>
-						<td>密码：</td>
-						<td><h:inputText name="password"
-								value="#{credentials.password}" size="10" /></td>
+						<td><h:commandButton value="测试" action="#{login.login}" /></td>
 					</tr>
-
-					<tr>
-						<td>用户身份：</td>
-						<td><h:selectOneRadio value="#{credentials.level}">
-								<f:selectItem id="item1" itemValue="root" itemLabel="root" />
-								<f:selectItem id="item2" itemValue="student" itemLabel="student" />
-							</h:selectOneRadio></td>
-					</tr>
-
-					<tr>
-						<td><h:commandButton value="登录" action="#{login.login}" /></td>
-						<td><h:link value="还未注册？先注册" outcome="register.jsf" /></td>
-					</tr>
-
-					
 				</table>
 			</h:form>
 		</p>
 	</div>
 	<div id="footer">copyright@ 314softlab.com</div>
-
+	<script language="javascript" type="text/javascript">
+		function validateCode() {
+			document.getElementById('getCode').src = "validateCode.jsp?"
+					+ Math.ceil(Math.random() * 1000);
+		}
+	</script>
 </h:body>
 </html>
