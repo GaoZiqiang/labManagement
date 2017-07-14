@@ -20,19 +20,12 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+/**
+ * 截取文件上传并将上传完的文件转换为请求特性，将其他所有表单数据转换为请求参数
+ */
 public class UploadFilter implements Filter {
 	private int sizeThreshold = -1;
 	private String repositoryPath;
-	//引入UserBean对象
-	private UserBean userBean = new UserBean();
-
-	public UserBean getUserBean() {
-		return userBean;
-	}
-
-	public void setUserBean(UserBean userBean) {
-		this.userBean = userBean;
-	}
 
 	public void init(FilterConfig config) throws ServletException {
 		System.out.println("断点测试:  init()方法");
@@ -82,6 +75,7 @@ public class UploadFilter implements Filter {
 			final Map<String, String[]> map = new HashMap<String, String[]>();
 			for (FileItem item : items) {
 				String str = item.getString();
+				System.out.println("UploadFilter.doFilter().item.getString()方法:  " + str);
 				if (item.isFormField())
 					map.put(item.getFieldName(), new String[] { str });
 				else
