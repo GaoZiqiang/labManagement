@@ -26,46 +26,59 @@
 			<li><a href="./storage.jsf">物品入库</a></li>
 			<li><a href="./report.jsf">统计报表</a></li>
 			<li><a href="./aboutus.jsf">关于我们</a></li>
-
 		</ul>
 		<div id="daohang">
-
 			<ul>
 				<li><a href="./login.jsf">退出登录</a></li>
-
 			</ul>
-
 		</div>
-
-
 		<div id="section">
 			<h2>Item Storage</h2>
 			<p>
 				<h:form>
-					<fieldset>
-						<legend>Item Storage</legend>
-						<span>Item Name：</span>
-						<h:inputText name="name" value="#{itemManager.newItem.name}"
-							size="10" />
-						<span>Item Code：</span>
-						<h:inputText name="code" value="#{itemManager.newItem.code}"
-							size="10" />
-						
-						<br /> <span>Item Status:</span>
-						<h:inputText name="status" value="#{itemManager.newItem.status}"
-							size="10" />
-						<br /> <span>Item Num:</span>
-						<h:inputText name="levelId"
-							value="#{itemManager.newItem.numTotal}" size="10" />
+					<table>
+						<tr>
+							<td>Item Name：</td>
+							<td><h:inputText name="name"
+									value="#{itemManager.newItem.name}" size="10" /></td>
+						</tr>
 
-						<br />
-						<h:commandButton value="Storage" action="#{itemManager.addItems}" />
+						<tr>
+							<td>Item Code：</td>
+							<td><h:inputText name="code"
+									value="#{itemManager.newItem.code}" size="10" /></td>
+						</tr>
 
-					</fieldset>
+						<tr>
+							<td>Item Status:</td>
+							<td><h:inputText name="status"
+									value="#{itemManager.newItem.status}" size="10" /></td>
+						</tr>
+
+						<tr>
+							<td>Item Num:</td>
+							<td><h:inputText name="num"
+									value="#{itemManager.newItem.numTotal}" size="10" /></td>
+						</tr>
+
+						<tr>
+							<td><h:selectOneMenu value="#{itemManager.newItem.directory}">
+									<f:selectItem itemValue="A" itemLabel="A" />
+									<f:selectItem itemValue="B" itemLabel="B" />
+									<f:selectItem itemValue="C" itemLabel="C" />
+									<f:selectItem itemValue="D" itemLabel="D" />
+								</h:selectOneMenu></td>
+						</tr>
+						<tr>
+							<td><h:commandButton value="Storage"
+									action="#{itemManager.addItems}" /></td>
+							<td><h:commandButton value="CategoryName"
+									action="#{categoryManager.getCategoryName}" /></td>
+						</tr>
+					</table>
 				</h:form>
 			</p>
 		</div>
-
 		<div id="footer">copyright@ 314softlab.com</div>
 	</div>
 </h:body>
